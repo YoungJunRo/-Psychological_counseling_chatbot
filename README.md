@@ -21,7 +21,7 @@ Train 코드는 기존 [KcBERT-Finetune](https://github.com/Beomi/KcBERT-finetun
 
 KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓글과 대댓글을 수집해 진행했습니다.
 
-## Finetuning - KcELECTRA (max_seq_length = 128) Performance with Wellness conversation dataset
+## Finetuning - KcELECTRA (max_seq_length = 128) Performance with Wellness
 
 ### Preprocessing
 
@@ -60,8 +60,8 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 ## 한계점
 
-- 사람의 심리상태는 359가지의 카테고리로 분류될 수 없기때문에 추가적인 심리상담 데이터 확보가 필요해보인다.
-- KcELECTRA (max_seq_length = 128)만의 하이퍼파라미터가 필요하다고 생각된다.
+- 사람의 심리상태는 359가지의 카테고리로 분류될 수 없기때문에 추가적인 심리상담 데이터 및 카테고리의 확보가 필요하다.
+- sweep 결과로 보았을 때, KcELECTRA (max_seq_length = 128)만의 하이퍼파라미터가 필요한 것으로 보인다.
 
 ## Reference 
 
