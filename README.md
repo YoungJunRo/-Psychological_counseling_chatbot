@@ -33,7 +33,7 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 ### Performance with Sweep
 
-- [Wandb sweep](https://wandb.ai/tkwk6428/sweep)  Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
+- [Wandb sweep](https://wandb.ai/tkwk6428/sweep)  (Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6])
 
 ### Performance with Batch_size = * and Learning_rate = CosineAnnealingWarmRestarts
 
