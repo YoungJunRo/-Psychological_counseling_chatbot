@@ -7,8 +7,8 @@
 
 이후 Wandb Sweep을 활용해 Finetuning에서의 하이퍼파라미터 최적화의 목표를 두었습니다.
 
-Train 하이퍼파라미터를 조정하지 않은 이유는, 서버 임대 기간이 20일 밖에없어 시간적 제약이 있었습니다.
-따라서, 하이퍼파라미터는 KcELECTRA의 config파일을 그대로 사용했고, Batch_size = 256, Learning_rate = 2e-4로 학습을 진행했습니다.
+Pretrain 하이퍼파라미터는 따로 조정하지않았습니다. (서버 임대 기간이 20일 밖에없어 시간적 제약이 있었습니다.)
+즉, 하이퍼파라미터는 KcELECTRA의 config파일을 그대로 사용했고, Batch_size = 256, Learning_rate = 2e-4로 학습을 진행했습니다.
 
 ## Pretraining - KcELECTRA (max_seq_length = 128)
 
