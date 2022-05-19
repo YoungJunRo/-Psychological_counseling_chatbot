@@ -45,7 +45,7 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 - KcELECTRA Model (max_seq_length = 128) Early stopping을 patient = 10k, delta = 0.0001을 QA Pair score 기준으로 설정했습니다.
 
-### KcELECTRA Model (max_seq_length = 128)을 학습하는 GPU 환경
+### 학습하는 GPU 환경
 
 - [네피리티](https://www.nepirity.com/): Tesla V100를 임대하여 사용 (batch_size = 16, 32, 64, 128, 256)
 - [colab](https://colab.research.google.com/): Tesla k80,T4 (batch_size = 32)
