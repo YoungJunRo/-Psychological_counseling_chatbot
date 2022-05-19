@@ -31,11 +31,11 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 - wellness_text_classification_preprocess : 카테고리 데이터와 질문(User input)데이터를 이용해 모든 질문에 숫자로 된 카테고리 할당
 - seperate_Wellness_data : 전체 데이터를 train_set과 test_set 분리(test_set은 전체 데이터의 10%)
 
-### Performance with Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
+### Performance with Sweep
 
-- [Wandb sweep](https://wandb.ai/tkwk6428/sweep)
+- [Wandb sweep](https://wandb.ai/tkwk6428/sweep)  Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
 
-### Performance with Batch_size = * and Leraning_rate = CosineAnnealingWarmRestarts
+### Performance with Batch_size = * and Learning_rate = CosineAnnealingWarmRestarts
 
 - CosineAnnealingWarmUpRestarts의 변수 값을 위의 Wandb sweep이 완료된 이후 최적화할 예정입니다.
 
