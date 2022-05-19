@@ -1,39 +1,48 @@
 # 심리상담 챗봇
 
-## Pre_training - KcELECTRA (max_seq_length = 128)
+기존 KoELECTRA 기반의 심리상담 챗봇 오픈소스를 활용하여 학습한 결과, 분류 정확도가 Test_set(전체 데이터의 10%)기준 정확도가 50%도 안나오는 현상이 발견되었습니다.
+그래서 QA Pair 방식의 정확도가 높은 KcELECTRA를 이용해 학습했으나, 이 역시도 분류 정확도가 낮은 것을 확인할 수 있었습니다.
 
-### preprocessing
-대부분의 한국어의 길이가 128자가 안되는점을 고려하여 128자가 넘는 문장은 말뭉치에서 제외하거나, 2문장으로 나누어 학습한다.
+따라서, 한국어에 맞게 max_seq_length를 조정하고, 그에 맞춰 input 데이터를 전처리하는 과정을 거쳤습니다.
 
-###
+이후 Wandb Sweep을 활용해 Finetuning에서의 하이퍼파라미터 최적화의 목표를 두었습니다.
 
-KcELECTRA 학습하는 코드와 데이터 전처리 과정은 추후 업로드 예정입니다. 
-(궁금하신 분들은 기존 max_seq_length = 512인 KcELECTRA의 학습코드를 미리 보시는 것을 추천드립니다.)
+Train 하이퍼파라미터를 조정하지 않은 이유는, 서버 임대 기간이 20일 밖에없어 시간적 제약이 있었습니다.
+따라서, 하이퍼파라미터는 KcELECTRA의 config파일을 그대로 사용했고, Batch_size = 256, Learning_rate = 2e-4로 학습을 진행했습니다.
 
-### Fine_tuning - KcELECTRA (max_seq_length = 128) Performance with Wellness conversation dataset
+## Pretraining - KcELECTRA (max_seq_length = 128)
 
-## preprocessing
+해당 문서에서는 Pretraining 부분에 대해서는 다루지 않을 예정입니다. 추후 6월 이후에 코드를 정리해서 업로드 예정에있습니다.
 
-## Performance with Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
+Train 코드는 기존 [KcBERT-Finetune](https://github.com/Beomi/KcBERT-finetune)과 거의 똑같으며, Input 데이터의 Preprocessing 방법에 차이가 조금 있습니다.
+따라서, 추후 업로드시에 이 부분을 중점적으로 다룰 예정이며, 코드에 대해서는 따로 블로그에 공부한 내용을 추후에 포스팅 하겠습니다.
 
-[Wandb sweep]https://wandb.ai/tkwk6428/sweep
+## Data
 
-## Performance with Batch_size = * and Leraning_rate = CosineAnnealingWarmRestarts
+KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓글과 대댓글을 수집해 진행했습니다.
 
-CosineAnnealingWarmUpRestarts의 변수 값을 위의 Wandb sweep이 완료된 이후 최적화할 예정입니다.
+## Finetuning - KcELECTRA (max_seq_length = 128) Performance with Wellness conversation dataset
+
+### Preprocessing
+
+### Performance with Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
+
+- [Wandb sweep](https://wandb.ai/tkwk6428/sweep)
+
+### Performance with Batch_size = * and Leraning_rate = CosineAnnealingWarmRestarts
+
+- CosineAnnealingWarmUpRestarts의 변수 값을 위의 Wandb sweep이 완료된 이후 최적화할 예정입니다.
 
 ## Acknowledgement
 
-KcELECTRA Model (max_seq_length = 128)을 학습하는 GPU 환경은 [네피리티](https://www.nepirity.com/)의 Tesla V100를 임대하여 사용했습니다.
+- 서버 임대 비용은 [동국대학교 Linc+ 사업단](https://lincplus.dongguk.edu/)의 금액적인 지원을 받았습니다.
 
-서버 임대 비용은 [동국대학교 Linc+ 사업단](https://lincplus.dongguk.edu/)의 금액적인 지원을 받았습니다.
+- KcELECTRA Model (max_seq_length = 128) 체크포인트를 Early stopping을 patient = 10k, delta = 0.001을 train loss 기준으로 설정했습니다.
 
-KcELECTRA Model (max_seq_length = 128) 체크포인트를 Early stopping을 patient = 10k, delta = 0.001을 train loss 기준으로 설정했습니다.
-
-KcELECTRA 학습하는 코드와 데이터 전처리 과정은 추후 업로드 예정입니다. 
-(궁금하신 분들은 기존 max_seq_length = 512인 KcELECTRA의 학습코드를 미리 보시는 것을 추천드립니다.)
-
-KcELECTRA with Wellness
+### KcELECTRA Model (max_seq_length = 128)을 학습하는 GPU 환경
+- [네피리티](https://www.nepirity.com/): Tesla V100를 임대하여 사용 (batch_size = 16, 32, 64, 128, 256)
+- [colab](https://colab.research.google.com/): Tesla k80,T4 (batch_size = 32)
+- Local 3060ti (batch_size = 16)
 
 ## Requirements
 
@@ -47,8 +56,6 @@ KcELECTRA with Wellness
 
 ### Github Repos
 - [KcELECTRA by Beomi](https://github.com/Beomi/KcELECTRA)
-- [BERT by Google](https://github.com/google-research/bert)
-- [KoBERT by SKT](https://github.com/SKTBrain/KoBERT)
 - [KoELECTRA by Monologg](https://github.com/monologg/KoELECTRA/)
 - [Transformers by Huggingface](https://github.com/huggingface/transformers)
 - [Tokenizers by Hugginface](https://github.com/huggingface/tokenizers)
