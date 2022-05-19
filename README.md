@@ -25,7 +25,7 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 ### Preprocessing
 
-- Wellness_category_data : 데이터셋에서 카테고리를 분류하고 숫자로 카테고리 설정
+- wellness_category_data : 데이터셋에서 카테고리를 분류하고 숫자로 카테고리 설정
 - wellness_question_preprocess : 데이터셋에서 카테고리와, 질문(User input)만을 저장
 - wellness_answer_preprocess : 데이터셋에서 답변만을 저장
 - wellness_text_classification_preprocess : 카테고리 데이터와 질문(User input)데이터를 이용해 모든 질문에 숫자로 된 카테고리 할당
