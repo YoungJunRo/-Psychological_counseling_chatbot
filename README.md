@@ -43,7 +43,7 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 - 서버 임대 비용은 [동국대학교 Linc+ 사업단](https://lincplus.dongguk.edu/)의 금액적인 지원을 받았습니다.
 
-- KcELECTRA Model (max_seq_length = 128) 체크포인트를 Early stopping을 patient = 10k, delta = 0.0001을 train loss 기준으로 설정했습니다.
+- KcELECTRA Model (max_seq_length = 128) Early stopping을 patient = 10k, delta = 0.0001을 QA Pair score 기준으로 설정했습니다.
 
 ### KcELECTRA Model (max_seq_length = 128)을 학습하는 GPU 환경
 
