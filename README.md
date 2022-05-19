@@ -25,9 +25,10 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 ### Preprocessing
 
+- Wellness_category_data : 데이터셋에서 카테고리를 분류하고 숫자로 카테고리 설정
 - wellness_question_preprocess : 데이터셋에서 카테고리와, 질문(User input)만을 저장
 - wellness_answer_preprocess : 데이터셋에서 답변만을 저장
-- wellness_text_classification_preprocess : 전체 데이터셋을 
+- wellness_text_classification_preprocess : 카테고리 데이터와 질문(User input)데이터를 이용해 모든 질문에 숫자로 된 카테고리 할당
 - seperate_Wellness_data : 전체 데이터를 train_set과 test_set 분리(test_set은 전체 데이터의 10%)
 
 ### Performance with Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
@@ -41,8 +42,8 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 ## Acknowledgement
 
 - 서버 임대 비용은 [동국대학교 Linc+ 사업단](https://lincplus.dongguk.edu/)의 금액적인 지원을 받았습니다.
-- 
-- KcELECTRA Model (max_seq_length = 128) 체크포인트를 Early stopping을 patient = 10k, delta = 0.001을 train loss 기준으로 설정했습니다.
+
+- KcELECTRA Model (max_seq_length = 128) 체크포인트를 Early stopping을 patient = 10k, delta = 0.0001을 train loss 기준으로 설정했습니다.
 
 ### KcELECTRA Model (max_seq_length = 128)을 학습하는 GPU 환경
 
