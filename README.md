@@ -25,6 +25,11 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 ### Preprocessing
 
+- wellness_question_preprocess : 데이터셋에서 카테고리와, 질문(User input)만을 저장
+- wellness_answer_preprocess : 데이터셋에서 답변만을 저장
+- wellness_text_classification_preprocess : 전체 데이터셋을 
+- seperate_Wellness_data : 전체 데이터를 train_set과 test_set 분리(test_set은 전체 데이터의 10%)
+
 ### Performance with Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
 
 - [Wandb sweep](https://wandb.ai/tkwk6428/sweep)
@@ -36,10 +41,11 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 ## Acknowledgement
 
 - 서버 임대 비용은 [동국대학교 Linc+ 사업단](https://lincplus.dongguk.edu/)의 금액적인 지원을 받았습니다.
-
+- 
 - KcELECTRA Model (max_seq_length = 128) 체크포인트를 Early stopping을 patient = 10k, delta = 0.001을 train loss 기준으로 설정했습니다.
 
 ### KcELECTRA Model (max_seq_length = 128)을 학습하는 GPU 환경
+
 - [네피리티](https://www.nepirity.com/): Tesla V100를 임대하여 사용 (batch_size = 16, 32, 64, 128, 256)
 - [colab](https://colab.research.google.com/): Tesla k80,T4 (batch_size = 32)
 - Local 3060ti (batch_size = 16)
@@ -51,6 +57,11 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 - `openpyxl`
 - `wandb`
 - `numpy`
+
+## 한계점
+
+- 사람의 심리상태는 359가지의 카테고리로 분류될 수 없기때문에 추가적인 심리상담 데이터 확보가 필요해보인다.
+- KcELECTRA (max_seq_length = 128)만의 하이퍼파라미터가 필요하다고 생각된다.
 
 ## Reference 
 
