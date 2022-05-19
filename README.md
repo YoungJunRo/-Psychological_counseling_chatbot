@@ -17,7 +17,7 @@ Pretrain 하이퍼파라미터는 따로 조정하지않았습니다. (서버 �
 Train 코드는 기존 [KcBERT-Finetune](https://github.com/Beomi/KcBERT-finetune)과 거의 똑같으며, Input 데이터의 Preprocessing 방법에 차이가 조금 있습니다.
 따라서, 추후 업로드시에 이 부분을 중점적으로 다룰 예정이며, 코드에 대해서는 따로 블로그에 공부한 내용을 추후에 포스팅 하겠습니다.
 
-## Data
+### Data
 
 KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓글과 대댓글을 수집해 진행했습니다.
 
