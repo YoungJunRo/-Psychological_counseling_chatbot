@@ -14,14 +14,11 @@ Pretrain 하이퍼파라미터는 따로 조정하지 않았습니다. (서버 �
 
 ## Pretraining - KcELECTRA (max_seq_length = 128)
 
-해당 문서에서는 Pretraining 부분에 대해서는 다루지 않을 예정입니다. 추후 6월 이후에 코드를 정리해서 업로드 예정에있습니다.
-
-Train 코드는 기존 [KcBERT-Finetune](https://github.com/Beomi/KcBERT-finetune)과 거의 똑같으며, Input 데이터의 Preprocessing 방법에 차이가 조금 있습니다.
-따라서, 추후 업로드시에 이 부분을 중점적으로 다룰 예정이며, 코드에 대해서는 따로 블로그에 공부한 내용을 추후에 포스팅 하겠습니다.
+Train 코드는 기존 [KcBERT-Finetune](https://github.com/Beomi/KcBERT-finetune)과 거의 똑같으며, Input 데이터의 Preprocessing 방법에서의 조금의 차이만 있습니다.
 
 ### Data
 
-KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓글과 대댓글을 수집해 진행했습니다.
+네이버 뉴스의 댓글과 대댓글 따로 수집하여 학습 (당시, Beomi님의 데이터 공개를 몰랐습니다.)
 
 ## Finetuning - KcELECTRA (max_seq_length = 128) Performance with Wellness
 
@@ -35,11 +32,8 @@ KcELECTRA의 데이터셋이 공개되어있지않아, 네이버 뉴스의 댓�
 
 ### Performance with Sweep
 
-- [Wandb sweep](https://wandb.ai/tkwk6428/sweep)  (Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6])
-
-### Performance with Batch_size = * and Learning_rate = CosineAnnealingWarmRestarts
-
-- CosineAnnealingWarmUpRestarts의 변수 값을 위의 Wandb sweep이 완료된 이후 최적화할 예정입니다.
+- [Wandb sweep (DEL)] 
+- Batch_size = [16, 32, 64, 128, 256] and Learning_rate = [1e-4, 3e-4, 1e-5, 3e-5, 1e-6, 5e-6]
 
 ## Acknowledgement
 
